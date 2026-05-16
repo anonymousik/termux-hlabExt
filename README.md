@@ -1,140 +1,78 @@
-# 📱 Mobile HackLab
-### Run Linux Desktop with GPU Acceleration on Android (No Root!)
-> Turn your Android phone into a powerful hacking machine with one command!
+# 📱 Hacklab-Termux v3.0.0
+(ARM OSINT Framework)
+### Run Linux Desktop, GPU Acceleration & OSINT Tools on Android
+
+> Zautomatyzowany framework transformujący Twoje urządzenie z systemem Android w potężną stację analityczną (OSINT) i środowisko testowe. Autoryzowany Pull Request.
 > 
-![GPU](https://img.shields.io/badge/GPU-Accelerated-orange?style=for-the-badge)
-![Root](https://img.shields.io/badge/Root-Not%20Required-brightgreen?style=for-the-badge)
----
-## 🚀 One-Command Installation
-Open **Termux** and paste this:
+## 🚀 Instalacja jednym poleceniem (One-Command Deployment)
+Otwórz **Termux** i wklej poniższe polecenie:
 ```bash
-curl -sL https://raw.githubusercontent.com/anonymousik/termux-hlabExt/main/install.sh | bash
+curl -sL [https://raw.githubusercontent.com/anonymousik/termux-hlabExt/main/install.sh](https://raw.githubusercontent.com/anonymousik/termux-hlabExt/main/install.sh) | bash
 ```
-**Or using wget:**
-```bash
-wget -O - https://raw.githubusercontent.com/anonymousik/termux-hlabExt/main/install.sh | bash
+## ✨ Nowości w wersji 3.0.0 (Autor: @Anonymousik)
+Wersja 3.0.0 przekształca podstawowy instalator w potężny i zautomatyzowany system operacyjny:
+
+| Funkcja | Opis |
+| :--- | :--- |
+| 🤖 **Dependency Resolver** | Inteligentny system wykrywający i doinstalowujący braki w systemie przed awarią. |
+| 📦 **APK Auto-Fetcher** | Zautomatyzowane pozyskiwanie wymaganych aplikacji zewnętrznych (np. klienta X11). |
+| 🕵️‍♂️ **Integracja OSINT** | Dodano moduły natywne z dystrybucji Kali/Parrot (Nmap, Sherlock, Holehe, SQLMap). |
+| 📡 **Remote Execute** | Moduł do bezpiecznego wczytywania i wykonywania skryptów z zewnętrznych serwerów. |
+| 🌐 **Wielojęzyczne Logi (i18n)** | Przebudowany interfejs graficzny w konsoli, używający profesjonalnych strumieni INFO/WARN/ERROR. | <br> ## 🖥️ Środowisko Graficzne i Akceleracja <br> W przeciwieństwie do innych rozwiązań opartych na VNC i renderowaniu programowym (software rendering), Hacklab Nexus zapewnia **prawdziwą akcelerację sprzętową GPU**: <br> * **Zink (OpenGL na Vulkanzie)** oraz natywne sterowniki **Turnip (Adreno GPU)**. <br> * Gwarancja płynnego działania interfejsu (60 FPS) z mniejszym obciążeniem baterii. <br> ## 🛠️ Użytkowanie infrastruktury <br> Po pomyślnej instalacji wykorzystaj nowe aliasy i skrypty rozruchowe wygenerowane w folderze domowym:
+| Polecenie | Akcja |
+| :--- | :--- |
+| ./start-nexus.sh | 🖥️ Główny plik rozruchowy środowiska XFCE4 i serwera X11. |
+| ./remote-exec.sh <URL> | 📡 Automatyczne pobranie i wykonanie zdalnego payloadu. |
+| cd ~/Hacklab_APKs | 📁 Dostęp do automatycznie pobranych aplikacji wymaganych do działania. |
+| ./uninstall.sh | 🛑 Całkowity i bezpieczny demontaż frameworka (rollback). |
+
+## 📋 Wymagania systemowe
+ * **System:** Android 7.0+ (Zalecany Android 10+ dla pełnego wsparcia Vulkan).
+ * **Termux:** Wersja z Github/F-Droid (Wersja z Google Play NIE jest obsługiwana).
+ * **Miejsce na dysku:** Minimalnie 4GB wolnej przestrzeni.
+## ⚠️ Zrzeczenie się odpowiedzialności (Disclaimer)
+```text
+To oprogramowanie służy WYŁĄCZNIE DO CELÓW EDUKACYJNYCH I BADAWCZYCH (OSINT).
+Używaj infrastruktury tylko do testowania systemów, do których posiadasz pisemną zgodę.
+Nieautoryzowane działania hakerskie są przestępstwem. Twórcy nie ponoszą odpowiedzialności.
 ```
----
-## ✨ Features
-| Feature | Description |
-|---------|-------------|
-| 🖥️ **Full Linux Desktop** | XFCE4 with Termux-X11 |
-| 🎮 **GPU Acceleration** | Turnip/Zink drivers for smooth 60fps |
-| 🔓 **No Root Required** | Works on ANY Android phone! |
-| 🔧 **100+ Hacking Tools** | Nmap, Metasploit, SQLMap, Hydra |
-| 🪟 **Windows Support** | Run `.exe` apps with Wine/Hangover |
-| ⌨️ **Bluetooth Support** | Keyboard & mouse work perfectly |
-| 📊 **Progress Bar** | See installation progress in real-time |
-| 🔊 **Audio Support** | PulseAudio for sound |
----
-## 🎮 GPU Acceleration - What Makes This Special
-Unlike other guides that use **slow software rendering**, this installer sets up **real GPU acceleration**:
-| Without GPU Accel | With GPU Accel (This Script) |
-|-------------------|------------------------------|
-| llvmpipe (CPU) | **Turnip Adreno (GPU)** |
-| 15-20 FPS | **60 FPS** |
-| Laggy desktop | **Smooth like PC** |
-| High battery drain | **Efficient** |
-**Supported GPUs:**
-- ✅ Qualcomm Adreno (Snapdragon phones)
-- ✅ Samsung Exynos (with Mali)
-- ✅ MediaTek (software fallback)
----
-## 📦 What Gets Installed
-### 🖥️ Desktop Environment
-- XFCE4 Desktop
-- Thunar File Manager
-- Firefox Browser
-- VS Code Editor
-### 🔧 Hacking Tools
-| Category | Tools |
-|----------|-------|
-| **Network** | Nmap, Netcat, Whois, DNS tools |
-| **Web** | SQLMap, Nikto |
-| **Password** | Hydra, John the Ripper |
-| **Exploitation** | Metasploit Framework |
-### 🪟 Windows Support
-- Wine Compatibility Layer
-- Hangover (WowBox64)
-- Direct `.exe` execution support
-### 🎮 GPU Drivers
-- Mesa Zink (OpenGL over Vulkan)
-- Turnip (Adreno GPU driver)
-- Vulkan Loader
----
-## 🎬 Video Tutorial
-[![Watch on YouTube](https://img.shields.io/badge/Watch%20Full%20Tutorial-YouTube-red?style=for-the-badge&logo=youtube)](https://youtu.be/4do18nhKc2k)
-**Step-by-step guide on my YouTube channel!**
----
-## 📸 Installation Preview
-```
-╔══════════════════════════════════════╗
-║                                      ║
-║   🚀  MOBILE HACKLAB v2.1  🚀        ║
-║                                      ║
-║       Tech Jarves - YouTube          ║
-║                                      ║
-╚══════════════════════════════════════╝
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  📊 OVERALL PROGRESS: Step 11/13 ██████████████░░░ 84%
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[Step 11/13] Installing Wine (Windows Support)...
-  ✓ Removing old Wine versions...
-  ✓ Installing Wine Compatibility Layer...
-  ⏳ Installing Box64 Wrapper... ⠹
-```
----
-## 🛠️ Usage
-After installation, use these commands:
-| Command | What it does |
-|---------|--------------|
-| `bash ~/start-hacklab.sh` | 🖥️ Start the desktop |
-| `bash ~/hacktools.sh` | 🔧 Quick tools menu |
-| `bash ~/stop-hacklab.sh` | 🛑 Stop the desktop |
----
-## 📋 Requirements
-| Requirement | Details |
-|-------------|---------|
-| **Android** | 7.0 or higher |
-| **Termux** | [Download from GitHub](https://github.com/termux/termux-app/releases) (NOT Play Store!) |
-| **Termux-X11** | [Download from GitHub](https://github.com/termux/termux-x11/releases) |
-| **Storage** | ~4GB free space |
-| **Internet** | Required for installation |
-> ⚠️ **Important:** Download Termux from GitHub, NOT Play Store! The Play Store version is outdated.
----
-## 💡 Pro Tips
-1. **Disable Phantom Process Killer** in Developer Options for stability
-2. **Use Bluetooth keyboard/mouse** for better experience
-3. **Open Termux-X11 app FIRST** before running `start-hacklab.sh`
-4. **Samsung DeX** works great with this setup!
----
-## ⚠️ Disclaimer
-```
-This tool is for EDUCATIONAL PURPOSES ONLY.
-Only use on systems you own or have explicit permission to test.
-Unauthorized hacking is illegal.
-The author is not responsible for any misuse.
-```
----
-## 🤝 Contributing
-Pull requests welcome! Feel free to:
-- 🐛 Report bugs
-- 💡 Suggest features
-- 🔧 Add new tools
----
-## 📺 Connect With Me
-| Platform | Link |
-|----------|------|
-| **YouTube** | [@TechJarves](https://youtube.com/@TechJarves) |
-| **GitHub** | [jarvesusaram99](https://github.com/jarvesusaram99) |
----
-## ⭐ Star This Repo!
-If this helped you, please give it a **star** ⭐ - it helps others find this project!
----
 <p align="center">
-  <b>🔥 Run Linux with GPU Acceleration - No Root Required! 🔥</b>
-  <br><br>
-  Made with ❤️ by <b>Tech Jarves</b>
+<b>🔥 Hacklab Nexus v3.0.0 - Architektura ARM zintegrowana przez @Anonymousik 🔥</b>
+</p>### Run Linux Desktop, GPU Acceleration & OSINT Tools on Android
+> Zautomatyzowany framework transformujący Twoje urządzenie z systemem Android w potężną stację analityczną (OSINT) i środowisko testowe. Autoryzowany Pull Request.
+> 
+## 🚀 Instalacja jednym poleceniem (One-Command Deployment)
+Otwórz **Termux** i wklej poniższe polecenie:
+```bash
+curl -sL [https://raw.githubusercontent.com/anonymousik/termux-hlabExt/main/install.sh](https://raw.githubusercontent.com/anonymousik/termux-hlabExt/main/install.sh) | bash
+```
+## ✨ Nowości w wersji 3.0.0 (Autor: @Anonymousik)
+Wersja 3.0.0 przekształca podstawowy instalator w potężny i zautomatyzowany system operacyjny:
+
+| Funkcja | Opis |
+| :--- | :--- |
+| 🤖 **Dependency Resolver** | Inteligentny system wykrywający i doinstalowujący braki w systemie przed awarią. |
+| 📦 **APK Auto-Fetcher** | Zautomatyzowane pozyskiwanie wymaganych aplikacji zewnętrznych (np. klienta X11). |
+| 🕵️‍♂️ **Integracja OSINT** | Dodano moduły natywne z dystrybucji Kali/Parrot (Nmap, Sherlock, Holehe, SQLMap). |
+| 📡 **Remote Execute** | Moduł do bezpiecznego wczytywania i wykonywania skryptów z zewnętrznych serwerów. |
+| 🌐 **Wielojęzyczne Logi (i18n)** | Przebudowany interfejs graficzny w konsoli, używający profesjonalnych strumieni INFO/WARN/ERROR. | <br> ## 🖥️ Środowisko Graficzne i Akceleracja <br> W przeciwieństwie do innych rozwiązań opartych na VNC i renderowaniu programowym (software rendering), Hacklab Nexus zapewnia **prawdziwą akcelerację sprzętową GPU**: <br> * **Zink (OpenGL na Vulkanzie)** oraz natywne sterowniki **Turnip (Adreno GPU)**. <br> * Gwarancja płynnego działania interfejsu (60 FPS) z mniejszym obciążeniem baterii. <br> ## 🛠️ Użytkowanie infrastruktury <br> Po pomyślnej instalacji wykorzystaj nowe aliasy i skrypty rozruchowe wygenerowane w folderze domowym:
+| Polecenie | Akcja |
+| :--- | :--- |
+| ./start-nexus.sh | 🖥️ Główny plik rozruchowy środowiska XFCE4 i serwera X11. |
+| ./remote-exec.sh <URL> | 📡 Automatyczne pobranie i wykonanie zdalnego payloadu. |
+| cd ~/Hacklab_APKs | 📁 Dostęp do automatycznie pobranych aplikacji wymaganych do działania. |
+| ./uninstall.sh | 🛑 Całkowity i bezpieczny demontaż frameworka (rollback). |
+
+## 📋 Wymagania systemowe
+ * **System:** Android 7.0+ (Zalecany Android 10+ dla pełnego wsparcia Vulkan).
+ * **Termux:** Wersja z Github/F-Droid (Wersja z Google Play NIE jest obsługiwana).
+ * **Miejsce na dysku:** Minimalnie 4GB wolnej przestrzeni.
+## ⚠️ Zrzeczenie się odpowiedzialności (Disclaimer)
+```text
+To oprogramowanie służy WYŁĄCZNIE DO CELÓW EDUKACYJNYCH I BADAWCZYCH (OSINT).
+Używaj infrastruktury tylko do testowania systemów, do których posiadasz pisemną zgodę.
+Nieautoryzowane działania hakerskie są przestępstwem. Twórcy nie ponoszą odpowiedzialności.
+```
+<p align="center">
+<b>🔥 Hacklab Nexus v3.0.0 - Architektura ARM zintegrowana przez @Anonymousik 🔥</b>
 </p>
-
-
