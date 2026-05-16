@@ -3,10 +3,19 @@
 > An automated integration framework that transforms your Android device into a professional intelligence-gathering (OSINT) workstation and security testing platform. Authorized Pull Request.
 > 
 ## 🚀 One-Command Deployment
+<img width="876" height="721" alt="1000464163" src="https://github.com/user-attachments/assets/f77c3736-8e12-4497-984a-5a622fd2b6ac" />
+
 Open **Termux** and paste the following command:
 ```bash
-curl -sL [https://raw.githubusercontent.com/anonymousik/termux-hlabExt/main/install.sh](https://raw.githubusercontent.com/anonymousik/termux-hlabExt/main/install.sh) | bash
+curl -sL 'https://raw.githubusercontent.com/anonymousik/termux-hlabExt/main/install.sh' | bash
 ```
+
+## 🗑️ One-Command uninstaller 
+Open **Termux** and paste the following command:
+```bash
+curl -sL 'https://raw.githubusercontent.com/anonymousik/termux-hlabExt/main/uninstall-hacklab.sh' | bash
+```
+
 ## ✨ Features & Architecture Upgrades in v3.0.0 (by @Anonymousik)
 Version 3.0.0 shifts Hacklab from a basic installation script to an automated, intelligent workspace:
 
@@ -22,7 +31,7 @@ Version 3.0.0 shifts Hacklab from a basic installation script to an automated, i
 | ./start-nexus.sh | 🖥️ Starts the XFCE4 desktop instance and initializes the local Termux-X11 server. |
 | ./remote-exec.sh <URL> | 📡 Dynamically fetches, validates headers, and securely runs remote Bash files. |
 | cd ~/Hacklab_APKs | 📁 Quick access to fetched .apk installers for local deployment. |
-| ./uninstall.sh | 🛑 Safely wipes environmental modifications, executing a full clean state rollback. |
+| ./uninstall-hacklab.sh | 🛑 Safely wipes environmental modifications, executing a full clean state rollback. |
 
 ## 📋 System Prerequisites
  * **OS Platform:** Android 7.0 or higher (Android 10+ recommended for stable Vulkan loader support).
